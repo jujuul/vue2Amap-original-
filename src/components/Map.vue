@@ -27,6 +27,7 @@ export default {
     return {
       path: [],
       rePath: [],
+      mouseTool: {},
     };
   },
   mounted() {
@@ -36,18 +37,23 @@ export default {
       zoom: 14,
     });
     window.mouseTool = new AMap.MouseTool(map);
+    window.overlays = [];
+    mouseTool.on("draw", function (e) {
+      overlays.push(e.obj);
+    });
     mouseTool.polygon({
       strokeColor: "#80d8ff",
       //同Polyline的Option设置
     });
-    // window.polyEditor = new AMap.PolyEditor(map, polygon);
   },
   methods: {
     open() {
-      //   polyEditor.open();
+      // mouseTool.polygon.getPath()
+      console.log(overlays);
+      // polyEditor.open();
     },
     close() {
-      polyEditor.close();
+      // polyEditor.close();
     },
   },
 };

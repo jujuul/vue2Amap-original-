@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Map from "./components/Map.vue";
+import Map from "./components/index-map.vue";
 
 export default {
   name: "App",
